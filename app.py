@@ -14,7 +14,14 @@ def index():
 
     for item in data:
         time_obj = datetime.datetime.fromtimestamp(float(item['epoch']))
-        feed.add(item['company'], item['description'], content_type='html', url=item['url'], id=item['id'], published=time_obj, updated=time_obj)
+        title = "%s - %s - 100\%\ REMOTE" %(item['position'],item['company'])
+        feed.add(title,
+                 item['description'],
+                 content_type='html',
+                 url=item['url'],
+                 id=item['id'],
+                 published=time_obj,
+                 updated=time_obj)
     return feed.get_response()
 
 if __name__ == '__main__':
