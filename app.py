@@ -14,7 +14,7 @@ def index():
 
     for item in data:
         time_obj = datetime.datetime.fromtimestamp(float(item['epoch']))
-        title = "%s - %s - 100\%\ REMOTE" %(item['position'],item['company'])
+        title = "%s - %s - 100%% REMOTE" %(item['position'],item['company'])
         feed.add(title,
                  item['description'],
                  content_type='html',
