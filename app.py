@@ -1,7 +1,6 @@
 from flask import *
-import requests, json
+import requests, json, datetime, os
 from werkzeug.contrib.atom import AtomFeed
-import datetime
 
 app = Flask(__name__)
 
@@ -19,4 +18,5 @@ def index():
     return feed.get_response()
 
 if __name__ == '__main__':
-      app.run(host='0.0.0.0', port=8080)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
